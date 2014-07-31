@@ -63,3 +63,4 @@ Other options with gulp:
 > gulp css:minify   -  Minify all css from script_dev to public/stylesheets
 > gulp css:watch    -  sass -> css conversion and css:minify every time file changes in script_dev
 > gulp watch        -  Make gulp publish every time any file changes
+
