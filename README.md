@@ -2,6 +2,8 @@
 
 ## Deployment
 
+### Linux
+
 First make sure you have installed
 
 ```
@@ -9,13 +11,12 @@ Node.js from http://nodejs.org/
 MongoDB from http://www.mongodb.org/
 ```
 
-Download this package, go to application root and write the following commands
+npm package manager should come installed with node. Now run the following commands
 
 ```
-npm install                   # Installs all the necessary node modules
-gulp publish                  # Creates all .js files and stylesheets
-npm install forever -g        # Installs forever globally. Forever or similar tool is needed for node to run continuously
-forever PORT=80 node app.js   # Sets up server at port 80. 
+sudo npm install git+https://github.com/N4SJAMK/toolbar.git # Downloads files and installs node modules
+./node_modules/.bin/gulp publish                  # Creates all .js files and stylesheets
+./node_modules/.bin/forever PORT=80 node app.js   # Sets up server at port 80. 
 ```
 
 If you like, you can change the port to e.g. 3000 and redirect traffic to port 80 with

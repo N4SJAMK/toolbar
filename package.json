@@ -40,7 +40,8 @@
     "passport-local": "~1.0.0",
     "bcrypt-nodejs": "0.0.3",
     "serve-favicon": "~2.0.1",
-    "nodemailer": "~0.7.0"
+    "nodemailer": "~0.7.0",
+    "forever": "~0.11.1"
   },
   "scripts": {
     "test": "./node_modules/.bin/gulp"
