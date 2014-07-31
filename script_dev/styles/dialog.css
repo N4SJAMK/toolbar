@@ -1,0 +1,20 @@
+.dialogField {
+	width: 100%;
+	border-bottom: 1px solid #dfdfdf;
+	padding-bottom: 5px;
+	margin-bottom: 15px;
+}
+
+.dialogField label {
+	width: 30%;
+	margin-right: 1px;
+	display: inline-block;
+	font-size: 12pt;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.ui-dialog-title, .ui-button-text {
+	font-family: Quicksand-Bold;
+	font-size: 1em;
+}
+

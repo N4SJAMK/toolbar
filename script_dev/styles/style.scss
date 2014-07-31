@@ -1,0 +1,689 @@
+/*
+* Styles for n4sjamk toolbar
+* @author: Janne Heikkinen
+* @author: Juuso Hatakka
+*/
+
+$text-color          : #797979;
+$border-color        : #dfdfdf;
+$border              : 1px solid $border-color;
+$button-text         : #52b5c2;
+$button-background   : #ffffff;
+$button-hover        : #f7f7f7;
+$button-height       : 32px;
+$button-width        : 110px;
+$tab-col-dark        : #037187;
+$tab-hover           : #b9b9b9;
+$tab-selected        : #52b5c2;
+$font2-size          : 0.85em;
+$font2               : "Verdana", "Geneva", "sans-serif";
+
+/**********************
+*
+*     BODY AND BAR
+*
+***********************/
+
+body {
+	font-family: Quicksand, "Arial", "Lucida Grande", "sans-serif";
+	font-size: 1em;
+	margin: 0;
+	color: $text-color;
+}
+
+#titleBar {
+	margin-left: auto;
+	margin-right: auto;
+	color: $tab-selected;
+	font-size: 1.4em;
+	font-family: Quicksand-Bold;
+	padding: 5px;
+	height: 26px;
+	display: inline-block;
+}
+
+#line-placeholder {
+	width: 100%;
+	height: 0px;
+	border-bottom: $border;
+	margin-bottom: 15px;
+}
+
+#mainBox h3 {
+	font-family: Quicksand-Bold;
+}
+
+/**********************
+*
+*       FONTS
+*
+***********************/
+
+
+/* Force chrome to use .svg fonts */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	@font-face {
+		font-family: Quicksand;
+		font-weight: bold;
+		src: url('Quicksand.svg') format('svg');
+	}
+
+	@font-face {
+		font-family: Quicksand-Bold;
+		src: url('Quicksand-Bold.svg') format('svg');
+	}
+}
+
+
+@font-face {
+	font-family: Quicksand-Bold;
+	src:  url('Quicksand-Bold.woff') format('woff'),
+	  url('Quicksand-Bold.ttf') format('truetype'),
+	  url('Quicksand-Bold.svg') format('svg');
+}
+
+
+@font-face {
+	font-family: Quicksand;
+	font-weight: bold;
+	src:  url('Quicksand.woff') format('woff'),  
+	  url('Quicksand.ttf') format('truetype'),
+	  url('Quicksand.svg') format('svg');
+}
+
+
+/**********************
+*
+*        ICONS
+*
+***********************/
+
+i:hover {
+	cursor: pointer;
+}
+
+
+i {
+	color: $tab-col-dark;
+	font-size: 1.5em;
+}
+
+.boxExpand i {
+	color: $text-color;
+}
+
+.tabControlsButtons i {
+	height: 22px;
+	width: 22px;
+	background: $tab-col-dark;
+	border-radius: 50%;
+	padding: 2px;
+	font-size: 1.2em;
+	color: $button-hover;
+}
+
+#lines i {
+	color: $button-hover;
+	background: $tab-selected;
+	padding: 3px 2px 1px 1px;
+	border-radius: 50%;
+	height: 17px;
+	width: 19px;
+	font-size: 0.90em;
+	vertical-align: bottom;
+}
+
+
+#lines {
+	text-align: center;
+	float: right;
+	width: 22px;
+	height: 22px;
+	position: relative;
+	margin-top: 1px;
+	margin-left: 3px;
+}
+
+/*  one extra pixel margin for firefox*/
+@-moz-document url-prefix() {
+	#lines {
+		margin-top: 2px;
+	}	
+}
+
+#tutorial i {
+	color: $tab-selected;
+}
+
+#tutorial {
+	text-align: right;
+	height: 22px;
+	width: 22px;
+	float: right;
+	margin-left: 3px;
+}
+
+/**********************
+*
+* TOPBAR AND GENERAL LAYOUT
+*
+***********************/
+
+
+#topbar {
+	margin: 0;
+	margin-bottom: 30px;
+	text-align: center;
+	height: 75px;
+	border-bottom: $border;
+}
+
+
+#topbarItems {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 600px;
+	min-width: 320px;
+	padding-left: 1%;
+	padding-right: 1%;
+	padding-top: 10px;
+	height: 40px;
+}
+
+
+#logo {
+	float: left;
+}
+
+
+#topbarButtons {
+	float: right;
+}
+
+#topbarText {
+	text-align: left;
+	font-size: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 600px;
+	min-width: 320px;
+	font-family: $font2;
+	font-size: 12pt;
+}
+
+#email {
+	width: 347px;
+	margin-top: 5px;
+	margin-right: 5px;
+	float: right;
+	text-align: right;
+	font-family: $font2;
+	font-size: $font2-size;
+	color: $tab-selected;
+}
+
+.submenu {
+	bottom: -120px;
+	right: 0px;
+	width: 110px;
+	text-align: center;
+	position: absolute;
+	display: none;
+}
+
+.submenu a {
+	text-decoration:none;
+	color: $button-text;
+}
+
+.submenuButton {
+	text-decoration:none;
+	width: 110px;
+	margin: 0;
+	padding: 8px;
+	border-top: $border;
+	border-left: $border;
+	border-right: $border;
+	background: $button-background;
+}
+
+.submenuButton:hover {
+	background: $button-hover;
+}
+
+#logout {
+	border-bottom: $border;
+}
+
+
+#barView {
+	float: left;
+	border: 0px solid black;
+	margin-left: 0%;
+	margin-right: 0%;
+	width: 100%;
+	text-align: center;
+}
+
+
+#mainBox {
+	margin-left: auto;
+	margin-right: auto;
+	width: 516px;
+	color: $tab-selected;
+	font-family: $font2;
+	font-size: 12pt;
+}
+
+#saveBox {
+	margin-left: auto;
+	margin-right: auto;
+	width: 450px;
+	margin-top: 15px;
+}
+
+#saveStatus {
+	width: 100%;
+	margin-top: 10px;
+}
+
+/**********************
+*
+*         TAB
+*
+***********************/
+
+
+#tabView {
+	width: 100%;
+	display: inline-block;
+}
+
+#tabs {
+	margin-bottom: 10px;
+	margin-right: auto;
+	display: inline-block;
+	float:left;
+}
+
+
+.tabContainer {
+	float: left;
+}
+
+.tab {
+	float: left;
+	width: 100px;
+	height: 100px;
+	border-radius: 5px;
+	margin: 0px 3px 3px 0;
+	font-family: $font2;
+	font-size: $font2-size;
+	line-height: (2*100px - 50px);
+	color: $button-hover;
+	overflow: hidden;
+	margin-top: auto;
+}
+
+
+.tabIcon {
+	padding: 5px;
+	border-radius: 5px;
+}
+
+
+#tabControls {
+	color: $text-color;
+	overflow: hidden;
+	border-bottom: $border;
+	padding: 5px;
+	background: $button-hover;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+
+/**********************
+*
+*     BOXES ( LINKS )
+*
+***********************/
+
+
+#boxes {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 15px;
+
+}
+
+
+.box {
+	background: transparent;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	text-align: left;
+	border-bottom: $border;
+}
+
+.box:last-child {
+	border-bottom: 0;
+}
+
+.box a:link {
+	color: $tab-selected;
+	font-family: Quicksand-Bold;
+}
+
+.box a:visited {
+	color: $tab-col-dark;
+}
+
+
+.boxInfo {
+	padding: 8px;
+	width: 516px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: $font2;
+	font-size: $font2-size;
+	color: #3a3a3a;
+	display: inline-block;
+}
+
+.boxInfoContent {
+	width:516px;
+}
+
+.buttons {
+	width: 40%;
+	float: right;
+}
+
+
+.boxContentText {
+	width: 60%;
+	display: inline-block;
+}
+
+
+.boxContent {
+	padding: 6px 6px 0px 6px;
+	color: #138fbb;
+	float: left;
+	width: 100%;
+}
+
+
+#boxView {
+	border-radius: 15px;
+	border: $border;
+	color: $text-color;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+
+/**********************
+*
+*    USER BARS PAGE
+*
+***********************/
+
+.barsField {
+	padding: 5px;
+	margin-bottom: 15px;
+	border: $border;
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+.barsFieldTitle {
+	margin-left: 5px;
+	margin-top: 5px;
+	width: 270px;
+	float: left;
+}
+
+.barsFieldButton {
+	width: auto;
+	border: 0px;
+	float: right;
+}
+
+.barsField a:link, .barsField a:visited {
+	font-family: Quicksand-Bold;
+	color: $tab-col-dark;
+}
+
+/**********************
+*
+*   USER PROFILE PAGE
+*
+***********************/
+
+#profileBox {
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.pwChangeField {
+	width: 250px;
+	margin-bottom: 10px;
+}
+
+
+/**********************
+*
+*    BAR AUTH PAGE
+*
+***********************/
+
+#barAuth {
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/**********************
+*
+*    BUTTONS AND INPUT
+*
+***********************/
+
+#editBarTitle {
+	display:inline-block;
+}
+
+.boxRemove {
+	float: right;
+	margin-left: 5px;
+	padding: 0;
+	width: 20px;
+	height: 20px;
+}
+
+
+.boxExpand {
+	float: right;
+	width: 20px;
+	height: 20px;
+	margin-left: 3px;
+}
+
+.boxEdit {
+	float: right;
+}
+
+#btnCreateBar, .button-link {
+	background: $text-color;
+	border-radius: 5px;
+	width: 130px;
+	height: 50px;
+	display: inline-block;
+	margin: 4px;
+}
+
+#btnCreateBar:hover, .button-link:hover, #btnOpenAddTab:hover, #btnAddBox:hover  {
+	background: $tab-hover;
+	cursor: pointer;
+}
+
+#tabButtons {
+	float: left;
+	margin-top: 43px;
+}
+
+.tabControlsButtons {
+	display: block;
+	height: 23px;
+	margin-bottom: 4px;
+	margin: 10px 0px;
+}
+
+#btnEditBar {
+	background: no-repeat $text-color center url('../images/edit.png');
+	border: 0px;
+	margin-bottom: 15px;
+	width: 130px;
+	height: 50px;
+	border-radius: 5px;
+}
+
+#btnEditBar:hover {
+	background: no-repeat $tab-hover center url('../images/edit.png');
+	cursor: pointer;
+}
+
+#btnEditTab, #btnDeleteTab {
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	margin: 0px 3px 0px 3px;
+}
+
+#btnEditTab {
+	margin-left: auto;
+}
+
+#btnDeleteTab {
+	margin-right: auto;
+}
+
+#btnOpenAddTab, #btnAddBox {
+	background: $text-color;
+	border-radius: 5px;
+	height: 48px;
+	width: 100px;
+}
+
+#btnOpenAddTab {
+	margin-bottom: 4px;
+}
+
+#btnLogin, #btnLogout, #btnRegister {
+	margin-left: 5px;
+	background: $button-hover;
+	color: $text-color;
+}
+
+#btnLogin:hover, #btnLogout:hover, #btnRegister:hover {
+	background: $button-background;
+}
+
+#showAllInfo {
+	float: right;
+	margin-right: 14px;
+}
+
+#createNewBtn {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 130px;
+	height: 50px;
+	border-radius: 5px;
+	border: 0px;
+	background: no-repeat $text-color center url('../images/addToolbar.png');
+}
+
+#createNewBtn:hover {
+	background: no-repeat $tab-hover center url('../images/addToolbar.png');
+}
+
+#txtUrlField {
+	font-family: $font2;
+	border: $border;
+	width: 320px;
+	max-width: 320px;
+	margin-bottom: 10px;
+}
+
+button {
+	font-family: Quicksand;
+	background: $button-background;
+	border: $border;
+	color: $button-text;
+	height: $button-height;
+	padding: 5px;
+	font-size: 1.0em;
+	width: $button-width;
+}
+
+button:hover {
+	background: $button-hover;
+}
+
+form {
+	display: inline;
+}
+
+input[type="submit"] {
+	font-family: Quicksand;
+	background: $button-background;
+	border: $border;
+	color: $button-text;
+	height: $button-height;
+	padding: 5px;
+	font-size: 1.0em;
+	width: $button-width;
+}
+
+input[type="submit"]:hover {
+	background: $button-hover;
+}
+
+
+input[type="text"] {
+	font-family: Quicksand;
+	font-size: 1.0em;
+	border: $border;
+	padding-left: 4px;
+	height: 26px;
+	max-width: 195px;
+}
+
+input[type="password"] {
+	border: $border;
+	padding-left: 4px;
+	height: 26px;
+}
+
+
+input[type="text"]#txtRetrievePassword {
+	width: 100%;
+}
+
+#responseLbl {
+	width: 100%;
+}
+
+/* for IE.. */
+a img {
+	border:0px;
+}

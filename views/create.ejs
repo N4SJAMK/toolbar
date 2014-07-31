@@ -1,0 +1,163 @@
+<%
+title = "create"
+%>
+
+<div id="mainBox">
+	<div id="titleBar">
+	</div>
+
+	<div id="editBarTitle">
+		<i class="fa fa-pencil" title="Edit toolbar title"></i>
+	</div>
+	<div id="line-placeholder"></div>
+
+	<div id="barView">
+
+        <div id="tabView">
+			<div id="tabs">
+				<div id="sort-placeholder"></div>
+			</div>
+			<div id="tabButtons">
+				<div id="btnOpenAddTab" title="Add new tab"><img src='../images/addTab.png' alt='Add Tab'></div>
+				<div id="btnAddBox" title="Add new link"><img src='../images/addBox.png' alt='Add Box'></div>
+			</div>
+		</div>
+
+		<div id="boxView">
+			<div id="tabControls">
+				<div id="showAllInfo"> <i class="fa fa-chevron-circle-up" title="Hide all"></i> </div>
+			</div>
+
+			<div id="boxes"></div>
+		</div>
+
+
+
+		<div id="saveBox">
+			<div id="btnCreateBar" title="Save this toolbar"><img src="../images/save.png" alt="Save"></div>
+			<div id="btnBarPassword" class="button-link"><img src="../images/addPassword.png" alt="Bar password"></div>
+			<a href="#" id="barLink"><div class="button-link"><img src="../images/view.png" alt="View"></div></a>
+			<div id="saveStatus"></div>
+		</div>
+
+	</div>
+
+</div>
+
+
+<div id="dialog-editTitle" title="Edit toolbar title">
+	<div class="dialogField">
+		<label>Title :</label>
+		<input type="text" id="txtBarTitle">
+	</div>
+</div>
+
+
+<!-- New tab dialog -->
+<div id="dialog-newTab" title="Add new tab">
+	Select icon:<br>
+	<% for(var i=0; i<icons.length; i++) { %>
+	  <img src="../images/icons/<%= icons[i] %>.png" alt="<%= icons[i] %>" class="tabIcon" id="<%= icons[i] %>" width="34" style="background: #037187">
+	<% } %>
+
+	<div class="dialogField">
+		<label>Title : </label>
+		<input type="text" id="txtTabTitle">
+	</div>
+	<input type="hidden" id="txtTabID">
+</div>
+
+<!-- New box dialog -->
+<div id="dialog-newBox" title="Add new link">
+	<div class="dialogField">
+		<label>Title : </label>
+		<input type="text" placeholder="Example link" id="txtBoxDesc">
+	</div>
+	<div class="dialogField">
+		<label>Address : </label>
+		<input type="text" placeholder="www.example.com" id="txtBoxContent">
+	</div>
+	<div class="dialogField">
+		<label>Description : </label>
+		<input type="text" placeholder="This link is an example" id="txtBoxInfo">
+	</div>
+    <input type="hidden" id="txtBoxID">
+</div>
+
+<!-- Set password dialog -->
+<div id="dialog-setPassword" title="Password protect">
+	<div class="dialogField">
+		<label>Password : </label>
+		<input type="password" class="barPw" placeholder="*******" id="txtBarPassword">
+	</div>
+	<div class="dialogField">
+		<label>Confirm password : </label>
+		<input type="password" class="barPw" placeholder="*******" id="txtBarPassword2">
+	</div>
+</div>
+
+
+<script>
+toolbar.bar.title = '<%= bar.title %>';
+toolbar.bar.id = '<%= barId %>';
+
+<% for(var i=0; i<bar.tabs.length; i++) { %>
+
+    toolbar.bar.addTab('<%= bar.tabs[i].title %>', '<%= bar.tabs[i].iconID %>',  []);
+	<% for(var j=0; j<bar.tabs[i].boxes.length; j++) { %>
+		toolbar.bar.addBox('<%= bar.tabs[i].boxes[j].info %>', '<%= bar.tabs[i].boxes[j].content %>', '<%= bar.tabs[i].boxes[j].description %>');
+	<% } %>
+	++toolbar.openTab;
+
+<% } %>
+
+
+$(function() {
+  	createTitle(true);
+	toolbar.openTab = 0;
+	createTabs(true);
+	updateBoxes(true);
+	changeSelectedTab($("#tab_" + toolbar.openTab),true);
+	$("#tab_0").css("background-color", toolbar.selectedCol);
+
+	if (<%- JSON.stringify(user) %> === null) {
+		$("#btnBarPassword").hide();
+	}
+
+	if (toolbar.bar.id !== 'null') {
+		$("#barLink").attr("href", "/" + toolbar.bar.id);
+	}
+
+
+	if (<%= bar.passwordEnabled %> === true) {
+		toolbar.bar.pwEnabled = true;
+	}
+
+
+
+	if (<%= tutorial %>) {
+		startIntro();
+	}
+
+	setPasswordDialogButtons();
+	enableSetPw();
+	$(".barPw").keyup(function() {
+		enableSetPw();
+	});
+
+});
+
+function enableSetPw() {
+	if (($("#txtBarPassword").val() === $("#txtBarPassword2").val()) && $("#txtBarPassword").val().length >= 1){
+		$(".ui-dialog-buttonpane button:contains('Set password')").button("enable");
+		$("#txtBarPassword").css('border-color', 'green');
+		$("#txtBarPassword2").css('border-color', 'green');
+	} else {
+		$(".ui-dialog-buttonpane button:contains('Set password')").button("disable");
+		$("#txtBarPassword").css('border-color', 'red');
+		$("#txtBarPassword2").css('border-color', 'red');
+	}
+}
+
+</script>
+

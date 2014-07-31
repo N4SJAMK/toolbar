@@ -1,0 +1,56 @@
+<!-- Register dialog -->
+<div id="dialog-register" title="Register">
+  <div class="dialogField">
+    <label>Email:</label>
+    <input type="text" id="txtRegEmail" class="txtReg" name="email">
+  </div>
+  <div class="dialogField">
+    <label>Password:</label>
+    <input type="password" id="txtRegPassword" class="txtReg" name="password">
+  </div>
+  <div class="dialogField">
+    <label>Confirm password:</label>
+    <input type="password" id="txtRegPassword2" class="txtReg" name="password2">
+  </div>
+
+</div>
+
+<!-- Login dialog -->
+<div id="dialog-login" title="Log in">
+  <div class="dialogField">
+    <label>Email:</label>
+    <input type="text" id="txtLoginEmail" name="email">
+  </div>
+  <div class="dialogField">
+    <label>Password:</label>
+    <input type="password" id="txtLoginPassword" name="password">
+  </div>
+  <div class="dialogField">
+    <a id="passwordRetrieve" href="#">Forgot your password?</a>
+  </div>
+</div>
+
+<!-- Response dialog for password change -->
+<div id="dialog-response" title="">
+  <div class="dialogField" id="responseDiv">
+    <img src='../images/loading.gif' id="loading-image" alt="loading" style="display:none;">
+    <label id="responseLbl"></label>
+  </div>
+</div>
+
+<!-- Confirmation dialog with yes/no options -->
+<div id="dialog-confirmation" title="">
+  <div class="dialogField" id="confirmationDiv">
+  </div>
+</div>
+
+
+<!-- Dialog for password retrieval-->
+<div id="dialog-retrievePassword" title="Retrieve your password">
+  <div class="dialogField">
+    Your email address
+  </div>
+  <div class="dialogField">
+    <input type="text" id="txtRetrievePassword" name="retrievePassword" placeholder="name@email.com">
+  </div>
+</div>

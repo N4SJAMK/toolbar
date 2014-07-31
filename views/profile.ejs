@@ -1,0 +1,68 @@
+<% title = "profile" %>
+<div id="profileBox">
+<h3>Change your password</h3>
+
+<h4 id="msg"><%= msg %></h4>
+
+<form action="/changePassword" method="POST">
+<label>Old password:</label><br>
+<input type="password" id="txtOldPassword" class="pwChangeField" name="oldPassword"><br><br>
+<label>New password:</label><br>
+<input type="password" id="txtNewPassword" class="pwChangeField" name="newPassword"><br>
+<label>Confirm new password:</label><br>
+<input type="password" id="txtNewPassword2" class="pwChangeField" name="newPassword2"><br>
+
+<span id="pwMsg"></span><br><br>
+<input id="btnChange" type="submit" value="Change">
+
+
+</form>
+
+</div>
+
+<script>
+$(function() {
+
+	disableChange();
+
+	$(".pwChangeField").keyup(function() {
+		if (matchPasswords($("#txtNewPassword"), $("#txtNewPassword2"))) {
+			enableChange();
+		} else {
+			disableChange();
+		}
+	});
+});
+
+function matchPasswords(pw, pw2) {
+
+	if (pw.val().length === 0) {
+		$("#pwMsg").text("Password can't be empty!");
+		return false;
+	}
+
+	if (pw.val() === pw2.val() && pw.val().length >= 1) {
+		$("#pwMsg").text("Passwords match!");
+    	return true;
+    } else {
+    	$("#pwMsg").text("Passwords don't match!");
+    	return false;
+    }
+}
+
+function disableChange() {
+    $("#txtNewPassword").css('border-color', 'red');
+    $("#txtNewPassword2").css('border-color', 'red');
+	$("#btnChange").prop("disabled", true);
+	$("#btnChange").css("color", "#dfdfdf");
+}
+
+function enableChange() {
+    $("#txtNewPassword").css('border-color', 'green');
+    $("#txtNewPassword2").css('border-color', 'green');
+	$("#btnChange").prop("disabled", false);
+	$("#btnChange").css("color", "#52b5c2");
+}
+
+
+</script>

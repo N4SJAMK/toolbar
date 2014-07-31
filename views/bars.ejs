@@ -1,0 +1,20 @@
+<% title="your toolbars" %>
+
+<div id="mainBox">
+<h3>My toolbars</h3>
+
+<% for(var i=0; i<bars.length; i++) { %>
+<div class="barsField">
+<div class="barsFieldTitle"><a href="/<%= bars[i].hash %>"><%= bars[i].title %></a></div>
+<form method="post" class="barForm" action="">
+	<input type="hidden" name="id" value="<%= bars[i].id %>">
+    <button class="barsFieldButton delete" type="submit" formaction="/delete"><i class="fa fa-trash-o"></i></button>
+    <button class="barsFieldButton" type="submit" formaction="/edit"><i class="fa fa-pencil"></i></button>
+</form>
+</div>
+<% } %>
+
+<form method="post" action="">
+	<button id="createNewBtn" type="submit" formaction="/edit"></button>
+</form>
+</div>

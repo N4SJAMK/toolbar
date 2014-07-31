@@ -1,0 +1,4 @@
+var gmail = { account  : "ACCOUNT",
+              password : "PASSWORD"}; 
+
+module.exports = gmail;

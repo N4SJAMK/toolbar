@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Fast and simple tool to create and share links with others">
+    <meta name="author" content="N4S @ JAMK">
+    <meta name="keywords" content="Toolbar, create, share, fast, simple, N4S, links, link collection">
+    <style type='text/css'>
+      .hidden {display:none;}
+    </style>
+    <title>Toolbar <%- " - " + title %></title>
+    <script src='/javascripts/all.js' type='text/javascript'></script>
+    <script type='text/javascript'>
+      $('html').addClass('hidden');
+      $(document).ready(function() {
+        $('html').show();
+      });
+    </script>
+    <link rel='stylesheet' type='text/css' media='screen' href='stylesheets/style.css' >
+    <link rel='stylesheet' type='text/css' media='screen' href='stylesheets/dialog.css' >      
+    <link rel='stylesheet' type='text/css' media='screen' href='stylesheets/jquery-ui.css' >
+    <link rel='stylesheet' type='text/css' media='screen' href='stylesheets/introjs.css' >
+    <link rel='stylesheet' type='text/css' media='screen' href='stylesheets/fa-4/css/font-awesome.min.css' >
+  </head>
+
+  <body>
+    <div id="path" class="<%-title%>" style="display:none;"></div>
+    <div id="topbar">
+      <div id="topbarItems">
+      <a href="/"><img id="logo" alt="logo" src="./images/logo.png"></a>
+      <div id="topbarButtons">
+        <script>
+          createTopbarButtons(<%- JSON.stringify(user) %>);
+        </script>
+      </div>
+      </div>
+      <div id="topbarText">
+        Create and share web sites and web based tools to your team, easily!
+      </div>
+    </div>
+
+  	<%- body %>
+
+    <% include dialogs.ejs %>
+
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<% title = "authenticate" %>
+
+<div id="barAuth">
+This bar is protected with password<br><br>
+<form action="/barAuth" method="POST">
+<input type="password" name="password">
+<input type="hidden" name="barId" value="<%= barId %>">
+<input type="hidden" name="hash" value="<%= hash %>"><br><br>
+<input type="submit" value="Submit">
+</form>
+</div>

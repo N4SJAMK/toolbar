@@ -1,0 +1,58 @@
+<%
+title = "bar"
+var txt = "";
+if (editor) {
+    txt = '<form method="post">' +
+            '<input type="hidden" name="id" value="' + bar.id + '">' +
+            '<button id="btnEditBar" formaction="/edit"></button>' + 
+          '</form>';
+}
+
+%>
+
+<script>
+toolbar.openTab = 0;
+toolbar.bar.title = '<%= bar.title %>';
+<% for(var i=0; i<bar.tabs.length; i++) { %>
+
+    toolbar.bar.addTab('<%= bar.tabs[i].title %>', '<%= bar.tabs[i].iconID %>',  []);
+	<% for(var j=0; j<bar.tabs[i].boxes.length; j++) { %>
+		toolbar.bar.addBox('<%= bar.tabs[i].boxes[j].info %>', '<%= bar.tabs[i].boxes[j].content %>', '<%= bar.tabs[i].boxes[j].description %>');
+	<% } %>
+    ++toolbar.openTab;
+<% } %>
+
+$(function() {
+    $("#txtUrlField").val(document.URL);
+    toolbar.openTab = 0;
+    createTabs(false);
+    updateBoxes(false);
+    createTitle(false);
+    $("#tab_0").css("background-color", toolbar.selectedCol);
+});
+</script>
+	
+<div id="mainBox">
+    <div id="titleBar"></div>
+    <div id="line-placeholder"></div>
+    <div id="barView">
+        <div id="tabView">
+            <div id="tabs">
+                <div id="sort-placeholder"></div>
+            </div>
+        </div>
+
+        <div id="boxView">
+            <div id="tabControls">
+                <div id="showAllInfo" class="plus"> <i class="fa fa-chevron-circle-down" title="Show all"></i> </div>
+            </div>
+            <div id="boxes"></div>
+        </div>
+        <%- txt %>
+    </div>
+    Address to this Toolbar:<br>
+    <input type="text" id="txtUrlField" readonly><br>
+    <iframe allowtransparency="true" frameborder="0" scrolling="no"
+        src="https://platform.twitter.com/widgets/tweet_button.html?text=Check out my awesome toolbar at&amp;hashtags=toolbar,share"
+        style="width:130px; height:20px;"></iframe>
+</div>

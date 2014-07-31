@@ -1,0 +1,8 @@
+node_modules/
+test/reports/
+fabfile.pyc
+*tar.gz
+public/stylesheets/*.css
+script_dev/styles/style.css
+public/javascripts/
+config/gmail.js
