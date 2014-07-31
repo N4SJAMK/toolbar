@@ -20,9 +20,16 @@ npm package manager should come installed with node. Now run the following comma
 
 ```
 sudo npm install git+https://github.com/N4SJAMK/toolbar.git # Downloads files and installs node modules
+```
+
+You'll find there's a file config/gmail.js:PROTOTYPE
+Add working gmail-account credentials and change the filename to gmail.js
+
+```
 ./node_modules/.bin/gulp publish                  # Creates all .js files and stylesheets
 ./node_modules/.bin/forever PORT=80 node app.js   # Sets up server at port 80. 
 ```
+
 
 If you like, you can change the port to e.g. 3000 and redirect traffic to port 80 with
 
