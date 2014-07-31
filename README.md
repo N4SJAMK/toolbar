@@ -23,6 +23,7 @@ sudo npm install git+https://github.com/N4SJAMK/toolbar.git # Downloads files an
 ```
 
 You'll find there's a file config/gmail.js:PROTOTYPE
+
 Add working gmail-account credentials and change the filename to gmail.js
 
 ```
