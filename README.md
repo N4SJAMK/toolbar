@@ -4,7 +4,7 @@
 
 First make sure you have installed
 
-> node.js from http://nodejs.org/
+> Node.js from http://nodejs.org/
 > MongoDB from http://www.mongodb.org/
 
 Download this package, go to application root and write the following commands
