@@ -1,5 +1,10 @@
 # Challenge Toolbar
 
+## Demo
+
+Live demo:
+[toolbar.n4sjamk.org](http://toolbar.n4sjamk.org)
+
 ## Deployment
 
 First make sure you have installed
